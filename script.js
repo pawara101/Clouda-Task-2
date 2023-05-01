@@ -1,6 +1,6 @@
 //Resreq API
 
-const fetch = require('node-fetch');
+//const fetch = require('node-fetch');
 const url = 'https://reqres.in/api/users';
 
 fetch(url)
