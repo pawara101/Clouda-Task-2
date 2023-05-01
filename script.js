@@ -1,5 +1,5 @@
 //Resreq API
-const { error } = require('console');
+
 const fetch = require('node-fetch');
 const url = 'https://reqres.in/api/users';
 
@@ -10,7 +10,15 @@ fetch(url)
         }
         return response.json()
     })
-    .then(data =>{
-        console.log(data)
+    .then(res_data =>{
+        //console.log(res_data);
+        //console.log(res_data.data)
+        data = res_data.data
+        //console.log(data)
+
+        for (var i=0; i<data.length;i++){
+            console.log(data[i].first_name)
+        }
+        
     })
     .catch(error => console.log(error))
