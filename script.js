@@ -1,5 +1,4 @@
 //Resreq API
-
 //const fetch = require('node-fetch');
 const url = 'https://reqres.in/api/users';
 
@@ -22,3 +21,12 @@ fetch(url)
         
     })
     .catch(error => console.log(error))
+
+    function displayItems(data) {
+        const firstName = data.first_name
+        const nameDiv = document.getElementById("names");// mention the division
+
+        const nameList = document.createElement("h3");
+        nameList.innerHTML = firstName;
+        nameDiv.appendChild(nameList);
+      }
