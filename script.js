@@ -12,7 +12,8 @@ fetch(url)
     .then(res_data =>{
         data = res_data.data
 
-        const dataAll = data.map(obj => `<ul id="names">${obj.first_name}</ul>`);        
+        const dataAll = data.map(obj => `<ul id="names">${obj.first_name}</ul>
+        <img id="avatar" src=${obj.avatar}></img>`);        
         console.log(dataAll)
 
         document.getElementById("dataset").innerHTML = dataAll.join('');
