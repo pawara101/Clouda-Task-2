@@ -10,23 +10,22 @@ fetch(url)
         return response.json()
     })
     .then(res_data =>{
-        //console.log(res_data);
-        //console.log(res_data.data)
         data = res_data.data
-        //console.log(data)
 
-        for (var i=0; i<data.length;i++){
-            console.log(data[i].first_name)
-        }
+        const dataAll = data.map(obj => `<ul id="names">${obj.first_name}</ul>`);        
+        console.log(dataAll)
+
+        document.getElementById("dataset").innerHTML = dataAll.join('');
         
     })
     .catch(error => console.log(error))
 
     function displayItems(data) {
-        const firstName = data.first_name
+        var allNames = data.map(obj => obj.first_name);
+        //console.log(allNames);
         const nameDiv = document.getElementById("names");// mention the division
 
         const nameList = document.createElement("h3");
-        nameList.innerHTML = firstName;
-        nameDiv.appendChild(nameList);
+        nameList.innerHTML = allNames;
+        //nameDiv.appendChild(nameList);
       }
