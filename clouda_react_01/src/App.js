@@ -4,13 +4,16 @@ import React, { useState, useEffect } from "react";
 function App() {
   const [user, setUser] = useState([]);
 
-  const fetchData = () => {
-    return fetch("https://reqres.in/api/users")
-          .then((response) => {
-            console.log(response.json())
-          })
-          .then((data) => setUser(data));
-
+  const fetchData = async () => {
+    try {
+      const response = await fetch('https://reqres.in/api/users');
+      const jsonData = await response.json();
+      console.log("Data :",jsonData);
+      setUser(jsonData.data);
+    }
+    catch(error){
+      //console.log(error);
+    };
   }
   
   useEffect(() => {
@@ -18,10 +21,30 @@ function App() {
   },[])
 
   return (
-    <main>
-      <h1>User List</h1>
-    </main>
+    <div>
+      {user.length > 0 ? (
+        <table>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+          </tr>
+          
+          {user.map(item => (
+              <tr>
+                <td>{item.first_name}</td>
+                <td>{item.email}</td>
+              </tr>
+              
+          )
+           )
+           
+             }
+        </table>
+      ) : (
+        <p>Loading data...</p>
+      )}
+    </div>
   );
-}
+};
 
 export default App;
