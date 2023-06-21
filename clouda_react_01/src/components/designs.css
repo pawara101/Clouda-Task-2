@@ -1,8 +1,17 @@
 .Tab1{
-    color: rgb(211, 10, 144);
+    border: 2px solid forestgreen;
+    width: 1500px;
 }
 
 .avatar{
-    border-radius: 70%;
-    width: 50%;
+    border-radius: 50%;
+    width: 10%;
+}
+
+.Fname{
+    font-size: larger;
+}
+
+h1{
+    color: brown;
 }

@@ -23,9 +23,10 @@ export default function ApiCall() {
         <table className="Tab1">         
           {user.map(item => (
               <tr>
+                <td className="Id">{item.id}</td>
                 <td><img src={item.avatar} className="avatar"></img></td>
-                <td>{item.first_name}</td>
-                <td>{item.email}</td>
+                <td className="Fname">{item.first_name}</td>
+                <td className="email">{item.email}</td>
               </tr>
                  )
            )
